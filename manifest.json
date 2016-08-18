@@ -1,0 +1,14 @@
+{
+    "description": "Monitor requests to CloudFront domains",
+    "manifest_version": 2,
+    "name": "The Front",
+    "version": "1.0",
+
+    "permissions": [
+        "webRequest"
+    ],
+
+    "background": {
+        "scripts": ["background.js"]
+    }
+}
