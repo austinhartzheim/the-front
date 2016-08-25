@@ -13,9 +13,19 @@ function logRequest(request) {
     });
 
     console.log("Log length is: " + requestLog.length.toString());
+    chrome.storage.local.set({logLength: requestLog.length});
+}
+
+function showLoggedData() {
+    chrome.tabs.create({
+        "url": chrome.extension.getURL("views/view-data.html")
+    });
 }
 
 chrome.webRequest.onBeforeRequest.addListener(
     logRequest,
     {urls: ["<all_urls>"]}
 );
+
+
+chrome.browserAction.onClicked.addListener(showLoggedData);
