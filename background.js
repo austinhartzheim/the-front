@@ -12,11 +12,18 @@ function logRequest(request) {
         origin: request.originUrl  // TODO: redact to hostname
     });
 
-    console.log("Log length is: " + requestLog.length.toString());
+    saveLog();
+}
+
+function saveLog() {
+    chrome.storage.local.set({requestLog: requestLog});
     chrome.storage.local.set({logLength: requestLog.length});
 }
 
 function showLoggedData() {
+    // Save log before trying to display data
+    saveLog();
+    
     chrome.tabs.create({
         "url": chrome.extension.getURL("views/view-data.html")
     });
@@ -29,3 +36,9 @@ chrome.webRequest.onBeforeRequest.addListener(
 
 
 chrome.browserAction.onClicked.addListener(showLoggedData);
+
+// Save request log when window closed
+chrome.windows.onRemoved.addListener(function(windowId) {
+    saveLog();
+    console.log("Window closed: " + windowId.toString());
+});
