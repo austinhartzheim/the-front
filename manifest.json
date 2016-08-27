@@ -6,7 +6,8 @@
 
     "permissions": [
         "webRequest",
-        "storage"
+        "storage",
+        "downloads"
     ],
 
     "background": {
