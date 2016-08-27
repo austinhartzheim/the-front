@@ -17,7 +17,6 @@ function logRequest(request) {
 
 function saveLog() {
     chrome.storage.local.set({requestLog: requestLog});
-    chrome.storage.local.set({logLength: requestLog.length});
 }
 
 function showLoggedData() {

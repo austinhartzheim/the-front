@@ -1,0 +1,22 @@
+body {
+    background: #333;
+    color: #ccc;
+}
+
+header {
+    border-bottom: 1px solid black;
+}
+
+.container {
+    max-width: 800px;
+    width: 800%;
+    text-align: left;
+}
+
+input,
+textarea,
+button {
+    border: 1px solid rgb(36, 36, 36);
+    background: rgb(54, 54, 54);
+    color: #ccc;
+}

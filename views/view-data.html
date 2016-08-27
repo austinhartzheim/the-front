@@ -3,11 +3,17 @@
   <head>
     <title>View Data | The Front</title>
     <script type="text/javascript" src="view-data.js"></script>
+    <link rel="stylesheet" type="text/css" href="global.css" />
   </head>
   <body>
-    <h1>Data</h1>
-    <p>Log Length: <input type="number" id="logLength" value="0" /></p>
-    <p><textarea id="requestLog" rows="24" cols="80"></textarea></p>
-    <p><button id="download-request-log">Download Request Log</button></p>
+    <header>
+      <h1>Data</h1>
+    </header>
+
+    <div id="container">
+      <h2>Request Log</h2>
+      <p><textarea id="requestLog" rows="24" cols="80"></textarea></p>
+      <p><button id="download-request-log">Download Request Log</button></p>
+    </div>
   </body>
 </html>
