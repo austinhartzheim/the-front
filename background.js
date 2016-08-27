@@ -28,10 +28,16 @@ function showLoggedData() {
     });
 }
 
-chrome.webRequest.onBeforeRequest.addListener(
-    logRequest,
-    {urls: ["<all_urls>"]}
-);
+// Set up traffic logging
+chrome.storage.local.get("settingUrlPatterns", (d) => {
+    url_patterns = d.settingUrlPatterns || ["<all_urls>"];
+    console.log("Enable logging for the following patterns: ");
+    console.log(url_patterns);
+    chrome.webRequest.onBeforeRequest.addListener(
+        logRequest,
+        {urls: url_patterns}
+    );
+});
 
 
 chrome.browserAction.onClicked.addListener(showLoggedData);
